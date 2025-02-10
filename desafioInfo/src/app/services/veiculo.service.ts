@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
-import { catchError, tap } from 'rxjs/operators';
+import { catchError, map, switchMap, tap } from 'rxjs/operators';
 
 interface Vehicle {
   id: number;
@@ -17,24 +17,39 @@ interface Vehicle {
   providedIn: 'root'
 })
 export class VeiculoService {
-  private apiUrl = '../../assets/veiculos.json';
+  private apiUrl = '../../assets/db.json';
 
   constructor(private http: HttpClient) {}
 
   // Função para obter todos os veículos
-  getVeiculos(): Observable<Vehicle[]> {
-    return this.http.get<Vehicle[]>(this.apiUrl).pipe(
-      catchError(this.handleError<Vehicle[]>('getVeiculos', []))
-    );
+  getVeiculos(): Observable<any> {
+    return this.http.get<any>(this.apiUrl);  // Retorna a resposta da API
   }
-
   // Função para adicionar um veículo
   addVeiculo(veiculo: Vehicle): Observable<Vehicle> {
-    return this.http.post<Vehicle>(this.apiUrl, veiculo).pipe(
-      tap(response => console.log('Resposta da API:', response)),
+    return this.http.get<{ vehicles: Vehicle[] }>(this.apiUrl).pipe(
+      map(response => {
+        const vehicles = response.vehicles;
+        if (Array.isArray(vehicles)) {
+          const maxId = vehicles
+            .map(v => v.id)
+            .reduce((max, current) => (current > max ? current : max), 0);
+          const newId = maxId + 1;
+          const newVehicle = { ...veiculo, id: newId };
+          console.log(newVehicle);
+          return newVehicle;
+        } else {
+          throw new Error('A resposta da API não contém um array válido de veículos');
+        }
+      }),
+      switchMap(newVehicle => {
+        // Envia o novo veículo para a API (usando POST com o novo veículo)
+        return this.http.post<Vehicle>('http://localhost:3000/vehicles', newVehicle).pipe(
+          tap(response => console.log('Resposta da API (POST):', response))  // Verifique a resposta do POST
+        );
+      }),
       catchError(error => {
         console.error('Erro ao adicionar veículo:', error);
-        alert(`Erro ao salvar veículo: ${error.message}`);
         return throwError(() => error);
       })
     );

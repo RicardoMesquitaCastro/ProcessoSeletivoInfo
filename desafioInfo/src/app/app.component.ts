@@ -34,7 +34,7 @@ export class AppComponent implements OnInit {
 
   loadVehicles(): void {
     this.veiculoService.getVeiculos().subscribe(data => {
-      this.vehicles = data;
+      this.vehicles = data.vehicles;
     });
   }
 
@@ -44,10 +44,8 @@ export class AppComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result)
       if (result) {
         this.veiculoService.addVeiculo(result).subscribe(() => {
-          console.log('Veículo adicionado');
           this.loadVehicles();
         });
       }
@@ -56,24 +54,22 @@ export class AppComponent implements OnInit {
 
   updateVeiculo(vehicle: Vehicle): void {
     const updatedVehicle: Vehicle = {
-      ...vehicle, // Copia as propriedades do veículo atual
-      placa: 'Nova Placa', // Alterando os campos desejados
+      ...vehicle, 
+      placa: 'Nova Placa',
       chassi: 'Novo Chassi',
       renavam: 'Novo Renavam',
       modelo: 'Novo Modelo',
       marca: 'Nova Marca',
       ano: 2025
     };
-    this.veiculoService.updateVeiculo(updatedVehicle).subscribe(() => {
-      console.log('Veículo atualizado');
-      this.loadVehicles(); // Recarregar a lista de veículos
+    this.veiculoService.updateVeiculo(updatedVehicle).subscribe(() => {   
+      this.loadVehicles(); 
     });
   }
 
   deleteVeiculo(id: number): void {
-    this.veiculoService.deleteVeiculo(id).subscribe(() => {
-      console.log('Veículo excluído');
-      this.loadVehicles(); // Recarregar a lista de veículos
+    this.veiculoService.deleteVeiculo(id).subscribe(() => {  
+      this.loadVehicles(); 
     });
   }
 }
