@@ -10,19 +10,25 @@
         <th>Modelo</th>
         <th>Marca</th>
         <th>Ano</th>
+        <th>Ações</th> <!-- Nova coluna para os botões de ação -->
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let vehicle of vehicles">
+      <tr *ngFor="let vehicle of vehicles; let i = index">
         <td>{{ vehicle.id }}</td>
-        <td>{{ vehicle.placa }}</td>
-        <td>{{ vehicle.chassi }}</td>
-        <td>{{ vehicle.renavam }}</td>
-        <td>{{ vehicle.modelo }}</td>
-        <td>{{ vehicle.marca }}</td>
-        <td>{{ vehicle.ano }}</td>
+        <td><input [(ngModel)]="vehicle.placa" [readonly]="!isEditing(i)" /></td>
+        <td><input [(ngModel)]="vehicle.chassi" [readonly]="!isEditing(i)" /></td>
+        <td><input [(ngModel)]="vehicle.renavam" [readonly]="!isEditing(i)" /></td>
+        <td><input [(ngModel)]="vehicle.modelo" [readonly]="!isEditing(i)" /></td>
+        <td><input [(ngModel)]="vehicle.marca" [readonly]="!isEditing(i)" /></td>
+        <td><input [(ngModel)]="vehicle.ano" [readonly]="!isEditing(i)" /></td>
+        <td>
+          <button style="margin-bottom: 5px; width: 53px;" *ngIf="!isEditing(i)" (click)="editVehicle(i)">Editar</button>
+          <button style="margin-bottom: 5px;" *ngIf="isEditing(i)" (click)="updateVeiculo(vehicle, i)">Atualizar</button>
+          <button (click)="deleteVeiculo(vehicle.id)">Excluir</button>
+        </td>
       </tr>
     </tbody>
   </table>
-  <button style="margin-top: 10px; width: 88px; height: 33px; margin-left: 44rem;" (click)="addVeiculo()"> ADICIONAR</button>
+  <button style="margin-top: 10px; width: 88px; height: 33px" (click)="addVeiculo()">ADICIONAR</button>
 </div>

@@ -1,15 +1,6 @@
 {
   "vehicles": [
     {
-      "id": "1",
-      "placa": "ABC1D23",
-      "chassi": "9BWZZZ377VT004251",
-      "renavam": "12345678901",
-      "modelo": "Gol",
-      "marca": "Volkswagen",
-      "ano": 2020
-    },
-    {
       "id": "2",
       "placa": "XYZ4E56",
       "chassi": "8ADZZZ123YT009876",
@@ -44,24 +35,6 @@
       "modelo": "Fiesta",
       "marca": "Ford",
       "ano": 2018
-    },
-    {
-      "id": "6",
-      "placa": "7",
-      "chassi": "7",
-      "renavam": "7",
-      "modelo": "7",
-      "marca": "7",
-      "ano": 7
-    },
-    {
-      "id": 7,
-      "placa": "8",
-      "chassi": "8",
-      "renavam": "8",
-      "modelo": "8",
-      "marca": "8",
-      "ano": 8
     }
   ]
 }

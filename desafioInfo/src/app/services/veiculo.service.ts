@@ -18,6 +18,7 @@ interface Vehicle {
 })
 export class VeiculoService {
   private apiUrl = '../../assets/db.json';
+  private apiUrlCRUD = 'http://localhost:3000/vehicles';
 
   constructor(private http: HttpClient) {}
 
@@ -44,7 +45,7 @@ export class VeiculoService {
       }),
       switchMap(newVehicle => {
         // Envia o novo veículo para a API (usando POST com o novo veículo)
-        return this.http.post<Vehicle>('http://localhost:3000/vehicles', newVehicle).pipe(
+        return this.http.post<Vehicle>(this.apiUrlCRUD, newVehicle).pipe(
           tap(response => console.log('Resposta da API (POST):', response))  // Verifique a resposta do POST
         );
       }),
@@ -56,11 +57,12 @@ export class VeiculoService {
   }
   // Função para atualizar um veículo
   updateVeiculo(updatedVehicle: Vehicle): Observable<Vehicle> {
-    return this.http.put<Vehicle>(`${this.apiUrl}/${updatedVehicle.id}`, updatedVehicle);
+    return this.http.put<Vehicle>(`${this.apiUrlCRUD}/${updatedVehicle.id}`, updatedVehicle);
   }
+
   // Função para excluir um veículo
   deleteVeiculo(id: number) {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`).pipe(
+    return this.http.delete<void>(`${this.apiUrlCRUD}/${id}`).pipe(
       catchError(this.handleError('deleteVeiculo'))
     );
   }

@@ -5,6 +5,8 @@ import { CommonModule } from '@angular/common';
 
 import { MatDialog } from '@angular/material/dialog';
 import { AddVeiculoModalComponent } from './add-veiculo-modal/add-veiculo-modal.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 export interface Vehicle {
   id: number;
@@ -15,16 +17,17 @@ export interface Vehicle {
   marca: string;
   ano: number;
 }
-
 @Component({
   selector: 'app-root',
-  imports: [CommonModule],
+  imports: [CommonModule,
+      FormsModule],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
   vehicles: Vehicle[] = [];
   newVehicle: Vehicle = {id: 0, placa: '', chassi: '', renavam: '', modelo: '', marca: '', ano: 0};
+  editingIndex: number | null = null;
 
   constructor(private veiculoService: VeiculoService, public dialog: MatDialog) {}
 
@@ -52,24 +55,32 @@ export class AppComponent implements OnInit {
     });
   }
 
-  updateVeiculo(vehicle: Vehicle): void {
-    const updatedVehicle: Vehicle = {
-      ...vehicle, 
-      placa: 'Nova Placa',
-      chassi: 'Novo Chassi',
-      renavam: 'Novo Renavam',
-      modelo: 'Novo Modelo',
-      marca: 'Nova Marca',
-      ano: 2025
-    };
-    this.veiculoService.updateVeiculo(updatedVehicle).subscribe(() => {   
-      this.loadVehicles(); 
-    });
+  editVehicle(index: number): void {
+    this.editingIndex = index;
+  }
+
+  // Verifica se o veículo está sendo editado
+  isEditing(index: number): boolean {
+    return this.editingIndex === index;
+  }
+
+  updateVeiculo(vehicle: any, index: number): void {
+    console.log('Atualizando veículo', vehicle);
+    this.veiculoService.updateVeiculo(vehicle).subscribe(
+      response => {
+        console.log('Veículo atualizado', response);
+        this.editingIndex = null;  // Finaliza a edição
+      },
+      error => {
+        console.error('Erro ao atualizar veículo:', error);
+      }
+    );
   }
 
   deleteVeiculo(id: number): void {
-    this.veiculoService.deleteVeiculo(id).subscribe(() => {  
-      this.loadVehicles(); 
+    this.veiculoService.deleteVeiculo(id).subscribe(() => {
+      console.log('Veículo excluído');
+      this.loadVehicles();
     });
   }
 }
