@@ -24,20 +24,17 @@ th {
   margin-top: 10px;
   width: 88px;
   height: 33px;
-  border-radius: 10px;  /* Borda arredondada */
-  border: none;  /* Remover borda padrão */
-  color: white;  /* Texto branco */
-  cursor: pointer;  /* Cursor de ponteiro ao passar o mouse */
+  border-radius: 10px;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 .add-button:hover {
-  background: rgb(255, 140, 0);  /* Cor alterada no hover */
+  background: rgb(255, 140, 0);
 }
 
-.add-button:last-child {
-  margin-bottom: 0;  /* Remove margem do último botão */
-}
-
-.add-button + .add-button {
-  margin-top: 5px;  /* Espaçamento entre os botões */
+input{
+  font-weight: bold;
 }

@@ -1,6 +1,7 @@
-<h2 style="margin-left: 45px;" mat-dialog-title>Adicionar Veículo</h2>
+<div  style="background-color: rgb(251, 187, 0);">
+<h2 style="color: black; margin-left: 75px; font-weight: bold;" mat-dialog-title>Adicionar Veículo</h2>
 <mat-dialog-content>
-  <form style="margin-left: 45px;" [formGroup]="vehicleForm">
+  <form style="margin-left: 65px;" [formGroup]="vehicleForm">
     <mat-form-field>
       <mat-label>Placa</mat-label>
       <input matInput formControlName="placa" required>
@@ -28,7 +29,9 @@
   </form>
 </mat-dialog-content>
 
-<div style="margin-left: 90px;" class="buttons">
-  <button mat-button (click)="onClose()">Cancelar</button>
-  <button mat-button (click)="onSave()" [disabled]="vehicleForm.invalid">Salvar</button>
+<div style="margin-left: 121px; margin-bottom: 26px;" class="buttons">
+  <button style="background: rgb(239, 110, 0); width: 10rem;"  mat-button (click)="onSave()" [disabled]="vehicleForm.invalid">Salvar</button>
+  <div style="margin-bottom: 20px;"></div>
+  <button style="background: rgb(239, 110, 0); width: 10rem;" mat-button (click)="onClose()">Cancelar</button>
+</div>
 </div>

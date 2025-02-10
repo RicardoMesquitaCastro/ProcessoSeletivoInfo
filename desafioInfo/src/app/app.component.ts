@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { VeiculoService } from './services/veiculo.service';
-
 import { CommonModule } from '@angular/common';
-
 import { MatDialog } from '@angular/material/dialog';
 import { AddVeiculoModalComponent } from './add-veiculo-modal/add-veiculo-modal.component';
-import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
 export interface Vehicle {
@@ -20,16 +17,16 @@ export interface Vehicle {
 @Component({
   selector: 'app-root',
   imports: [CommonModule,
-      FormsModule],
+    FormsModule],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
   vehicles: Vehicle[] = [];
-  newVehicle: Vehicle = {id: 0, placa: '', chassi: '', renavam: '', modelo: '', marca: '', ano: 0};
+  newVehicle: Vehicle = { id: 0, placa: '', chassi: '', renavam: '', modelo: '', marca: '', ano: 0 };
   editingIndex: number | null = null;
 
-  constructor(private veiculoService: VeiculoService, public dialog: MatDialog) {}
+  constructor(private veiculoService: VeiculoService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.loadVehicles();
@@ -50,7 +47,10 @@ export class AppComponent implements OnInit {
       if (result) {
         this.veiculoService.addVeiculo(result).subscribe(() => {
           this.loadVehicles();
-        });
+        }, error => {
+          console.error('Erro ao adicionar veículo:', error);
+        }
+      );
       }
     });
   }
@@ -59,18 +59,14 @@ export class AppComponent implements OnInit {
     this.editingIndex = index;
   }
 
-  // Verifica se o veículo está sendo editado
   isEditing(index: number): boolean {
     return this.editingIndex === index;
   }
 
   updateVeiculo(vehicle: any, index: number): void {
-    console.log('Atualizando veículo', vehicle);
-    this.veiculoService.updateVeiculo(vehicle).subscribe(
-      response => {
-        console.log('Veículo atualizado', response);
-        this.editingIndex = null;  // Finaliza a edição
-      },
+    this.veiculoService.updateVeiculo(vehicle).subscribe(() => {
+      this.editingIndex = null;
+    },
       error => {
         console.error('Erro ao atualizar veículo:', error);
       }
@@ -79,8 +75,11 @@ export class AppComponent implements OnInit {
 
   deleteVeiculo(id: number): void {
     this.veiculoService.deleteVeiculo(id).subscribe(() => {
-      console.log('Veículo excluído');
       this.loadVehicles();
-    });
+    },
+    error => {
+      console.error('Erro ao deletar veículo:', error);
+    }
+  );
   }
 }

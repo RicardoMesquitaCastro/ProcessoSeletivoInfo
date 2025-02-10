@@ -2,3 +2,11 @@ mat-dialog-content {
   max-height: unset !important;
   overflow: visible !important;
 }
+
+.mat-mdc-button:not(:disabled) {
+  color: white;
+}
+
+.mat-mdc-button .mat-mdc-button-touch-target {
+   position: none !important;
+  }

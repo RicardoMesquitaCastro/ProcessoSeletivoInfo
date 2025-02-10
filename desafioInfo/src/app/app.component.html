@@ -1,3 +1,4 @@
+<img src="https://infosistemas.com.br/locavia-web/wp-content/uploads/2023/11/logotipo-locavia.png" alt="">
 <div class="container">
   <h2>Lista de Veículos</h2>
   <table>
@@ -10,12 +11,12 @@
         <th>Modelo</th>
         <th>Marca</th>
         <th>Ano</th>
-        <th>Ações</th> <!-- Nova coluna para os botões de ação -->
+        <th>Ações</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let vehicle of vehicles; let i = index">
-        <td>{{ vehicle.id }}</td>
+        <td style="font-weight: bold;">{{ vehicle.id }}</td>
         <td><input [(ngModel)]="vehicle.placa" [readonly]="!isEditing(i)" /></td>
         <td><input [(ngModel)]="vehicle.chassi" [readonly]="!isEditing(i)" /></td>
         <td><input [(ngModel)]="vehicle.renavam" [readonly]="!isEditing(i)" /></td>
@@ -31,5 +32,5 @@
       </tr>
     </tbody>
   </table>
-  <button class="add-button" (click)="addVeiculo()">ADICIONAR</button>
+  <button class="add-button" style="width: 400px;" (click)="addVeiculo()">ADICIONAR</button>
 </div>
