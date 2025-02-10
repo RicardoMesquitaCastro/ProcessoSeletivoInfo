@@ -2,18 +2,15 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AddVeiculoModalComponent } from './add-veiculo-modal.component';
 import { MatDialogRef } from '@angular/material/dialog';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { of } from 'rxjs';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
-import { By } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('AddVeiculoModalComponent', () => {
   let component: AddVeiculoModalComponent;
   let fixture: ComponentFixture<AddVeiculoModalComponent>;
-  let dialogRefMock: jasmine.SpyObj<MatDialogRef<AddVeiculoModalComponent>>;
 
   beforeEach(async () => {
     const dialogRefSpy = jasmine.createSpyObj('MatDialogRef', ['close']);
