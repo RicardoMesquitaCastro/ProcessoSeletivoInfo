@@ -32,10 +32,11 @@ export class VeiculoService {
       map(response => {
         const vehicles = response.vehicles;
         if (Array.isArray(vehicles)) {
+          // Garantir que maxId seja tratado como número
           const maxId = vehicles
-            .map(v => v.id)
-            .reduce((max, current) => (current > max ? current : max), 0);
-          const newId = maxId + 1;
+            .map(v => Number(v.id)) // Convertendo os ids para números
+            .reduce((max, current) => Math.max(max, current), 0);
+          const newId = (maxId + 1).toString(); // Convertendo o novo id para string
           const newVehicle = { ...veiculo, id: newId };
           console.log(newVehicle);
           return newVehicle;
@@ -44,9 +45,8 @@ export class VeiculoService {
         }
       }),
       switchMap(newVehicle => {
-        // Envia o novo veículo para a API (usando POST com o novo veículo)
         return this.http.post<Vehicle>(this.apiUrlCRUD, newVehicle).pipe(
-          tap(response => console.log('Resposta da API (POST):', response))  // Verifique a resposta do POST
+          tap(response => console.log('Resposta da API (POST):', response))
         );
       }),
       catchError(error => {

@@ -1,15 +1,6 @@
 {
   "vehicles": [
     {
-      "id": "2",
-      "placa": "XYZ4E56",
-      "chassi": "8ADZZZ123YT009876",
-      "renavam": "98765432109",
-      "modelo": "Civic-Honda",
-      "marca": "Honda",
-      "ano": "2017"
-    },
-    {
       "id": "3",
       "placa": "JKL7F89",
       "chassi": "7GHZZZ654RT003456",

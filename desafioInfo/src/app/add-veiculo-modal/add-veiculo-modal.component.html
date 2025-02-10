@@ -1,37 +1,86 @@
-<div  style="background-color: rgb(251, 187, 0);">
-<h2 style="color: black; margin-left: 75px; font-weight: bold;" mat-dialog-title>Adicionar Veículo</h2>
-<mat-dialog-content>
-  <form style="margin-left: 65px;" [formGroup]="vehicleForm">
-    <mat-form-field>
-      <mat-label>Placa</mat-label>
-      <input matInput formControlName="placa" required>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Chassi</mat-label>
-      <input matInput formControlName="chassi" required>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Renavam</mat-label>
-      <input matInput formControlName="renavam" required>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Modelo</mat-label>
-      <input matInput formControlName="modelo" required>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Marca</mat-label>
-      <input matInput formControlName="marca" required>
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Ano</mat-label>
-      <input matInput formControlName="ano" required type="number">
-    </mat-form-field>
-  </form>
-</mat-dialog-content>
+<div class="bodyColor">
+  <h2 class="title" mat-dialog-title>Adicionar Veículo</h2>
+  <mat-dialog-content>
+    <form class="formClass" [formGroup]="vehicleForm">
 
-<div style="margin-left: 121px; margin-bottom: 26px;" class="buttons">
-  <button style="background: rgb(239, 110, 0); width: 10rem;"  mat-button (click)="onSave()" [disabled]="vehicleForm.invalid">Salvar</button>
-  <div style="margin-bottom: 20px;"></div>
-  <button style="background: rgb(239, 110, 0); width: 10rem;" mat-button (click)="onClose()">Cancelar</button>
-</div>
+      <!-- Placa -->
+      <mat-form-field>
+        <mat-label>Placa</mat-label>
+        <input matInput formControlName="placa" required>
+        <mat-error class="matError" *ngIf="vehicleForm.get('placa')?.hasError('required') && vehicleForm.get('placa')?.touched">
+          Placa é obrigatória.
+        </mat-error>
+        <mat-error class="matError" *ngIf="vehicleForm.get('placa')?.hasError('minlength') && vehicleForm.get('placa')?.touched">
+          Placa deve ter 7 caracteres.
+        </mat-error>
+        <mat-error class="matError" *ngIf="vehicleForm.get('placa')?.hasError('maxlength') && vehicleForm.get('placa')?.touched">
+          Placa deve ter 7 caracteres.
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Chassi -->
+      <mat-form-field>
+        <mat-label>Chassi</mat-label>
+        <input matInput formControlName="chassi" required>
+        <mat-error class="matError" *ngIf="vehicleForm.get('chassi')?.hasError('required') && vehicleForm.get('chassi')?.touched">
+          Chassi é obrigatório.
+        </mat-error>
+        <mat-error class="matError" *ngIf="vehicleForm.get('chassi')?.hasError('minlength') && vehicleForm.get('chassi')?.touched">
+          Chassi deve ter 17 caracteres.
+        </mat-error>
+        <mat-error class="matError" *ngIf="vehicleForm.get('chassi')?.hasError('maxlength') && vehicleForm.get('chassi')?.touched">
+          Chassi deve ter 17 caracteres.
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Renavam -->
+      <mat-form-field>
+        <mat-label>Renavam</mat-label>
+        <input matInput formControlName="renavam" required>
+        <mat-error class="matError" *ngIf="vehicleForm.get('renavam')?.hasError('required') && vehicleForm.get('renavam')?.touched">
+          Renavam é obrigatório.
+        </mat-error>
+        <mat-error class="matError" *ngIf="vehicleForm.get('renavam')?.hasError('minlength') && vehicleForm.get('renavam')?.touched">
+          Renavam deve ter 11 caracteres.
+        </mat-error>
+        <mat-error class="matError" *ngIf="vehicleForm.get('renavam')?.hasError('maxlength') && vehicleForm.get('renavam')?.touched">
+          Renavam deve ter 11 caracteres.
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Modelo -->
+      <mat-form-field>
+        <mat-label>Modelo</mat-label>
+        <input matInput formControlName="modelo" required>
+        <mat-error class="matError" *ngIf="vehicleForm.get('modelo')?.hasError('required') && vehicleForm.get('modelo')?.touched">
+          Modelo é obrigatório.
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Marca -->
+      <mat-form-field>
+        <mat-label>Marca</mat-label>
+        <input matInput formControlName="marca" required>
+        <mat-error class="matError" *ngIf="vehicleForm.get('marca')?.hasError('required') && vehicleForm.get('marca')?.touched">
+          Marca é obrigatória.
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Ano -->
+      <mat-form-field>
+        <mat-label>Ano</mat-label>
+        <input matInput formControlName="ano" required type="number">
+        <mat-error class="matError" *ngIf="vehicleForm.get('ano')?.hasError('required') && vehicleForm.get('ano')?.touched">
+          Ano é obrigatório.
+        </mat-error>
+      </mat-form-field>
+
+    </form>
+  </mat-dialog-content>
+
+  <div class="buttons">
+    <button class="buttonsIntern" mat-button (click)="onSave()" [disabled]="vehicleForm.invalid">Salvar</button>
+    <div class="divSeparator"></div>
+    <button class="buttonsIntern" mat-button (click)="onClose()">Cancelar</button>
+  </div>
 </div>

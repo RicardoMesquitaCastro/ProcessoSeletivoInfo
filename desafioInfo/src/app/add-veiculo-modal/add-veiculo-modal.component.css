@@ -1,3 +1,6 @@
+.bodyColor{
+  background-color: rgb(251, 187, 0);
+}
 mat-dialog-content {
   max-height: unset !important;
   overflow: visible !important;
@@ -10,3 +13,34 @@ mat-dialog-content {
 .mat-mdc-button .mat-mdc-button-touch-target {
    position: none !important;
   }
+
+  .title{
+    color: black;
+    margin-left: 75px;
+    font-weight: bold;
+  }
+
+  .formClass{
+    margin-left: 65px;
+  }
+
+  .buttons{
+    margin-left: 121px;
+    margin-bottom: 26px;
+  }
+
+  .buttonsIntern{
+    background: rgb(239, 110, 0);
+    width: 10rem;
+  }
+
+  .divSeparator{
+    margin-bottom: 20px;
+  }
+
+  .matError{
+    color: red;
+    margin-top: -4px;
+    font-weight: bold;
+  }
+
