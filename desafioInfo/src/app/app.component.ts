@@ -33,9 +33,10 @@ export class AppComponent implements OnInit {
   }
 
   loadVehicles(): void {
-    this.veiculoService.getVeiculos().subscribe(data => {
+    this.veiculoService.getVeiculos().subscribe((data) => {
       this.vehicles = data.vehicles;
-    });
+    },
+  );
   }
 
   addVeiculo(): void {
@@ -47,8 +48,6 @@ export class AppComponent implements OnInit {
       if (result) {
         this.veiculoService.addVeiculo(result).subscribe(() => {
           this.loadVehicles();
-        }, error => {
-          console.error('Erro ao adicionar veículo:', error);
         }
       );
       }
@@ -66,20 +65,13 @@ export class AppComponent implements OnInit {
   updateVeiculo(vehicle: any, index: number): void {
     this.veiculoService.updateVeiculo(vehicle).subscribe(() => {
       this.editingIndex = null;
-    },
-      error => {
-        console.error('Erro ao atualizar veículo:', error);
-      }
-    );
+    });
   }
 
   deleteVeiculo(id: number): void {
     this.veiculoService.deleteVeiculo(id).subscribe(() => {
       this.loadVehicles();
     },
-    error => {
-      console.error('Erro ao deletar veículo:', error);
-    }
   );
   }
 }

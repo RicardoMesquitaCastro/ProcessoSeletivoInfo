@@ -24,17 +24,17 @@ export class VeiculoService {
 
   // Função para obter todos os veículos
   getVeiculos(): Observable<any> {
-    return this.http.get<any>(this.apiUrl);  // Retorna a resposta da API
+    return this.http.get<any>(this.apiUrl);
   }
+
   // Função para adicionar um veículo
   addVeiculo(veiculo: Vehicle): Observable<Vehicle> {
     return this.http.get<{ vehicles: Vehicle[] }>(this.apiUrl).pipe(
       map(response => {
         const vehicles = response.vehicles;
         if (Array.isArray(vehicles)) {
-          // Garantir que maxId seja tratado como número
           const maxId = vehicles
-            .map(v => Number(v.id)) // Convertendo os ids para números
+            .map(v => Number(v.id))
             .reduce((max, current) => Math.max(max, current), 0);
           const newId = (maxId + 1).toString(); // Convertendo o novo id para string
           const newVehicle = { ...veiculo, id: newId };
@@ -70,7 +70,7 @@ export class VeiculoService {
   // Função para lidar com erros
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
-      console.error(error); // Log do erro
+      console.error(error);
       return of(result as T);
     };
   }
