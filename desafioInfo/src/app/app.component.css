@@ -2,6 +2,7 @@
   margin: 0 auto;
   padding: 20px;
   text-align: center;
+  background: rgb(251, 187, 0);
 }
 
 table {
@@ -16,4 +17,27 @@ th, td {
 
 th {
   background-color: #f4f4f4;
+}
+
+.add-button {
+  background: rgb(239, 110, 0);
+  margin-top: 10px;
+  width: 88px;
+  height: 33px;
+  border-radius: 10px;  /* Borda arredondada */
+  border: none;  /* Remover borda padrão */
+  color: white;  /* Texto branco */
+  cursor: pointer;  /* Cursor de ponteiro ao passar o mouse */
+}
+
+.add-button:hover {
+  background: rgb(255, 140, 0);  /* Cor alterada no hover */
+}
+
+.add-button:last-child {
+  margin-bottom: 0;  /* Remove margem do último botão */
+}
+
+.add-button + .add-button {
+  margin-top: 5px;  /* Espaçamento entre os botões */
 }

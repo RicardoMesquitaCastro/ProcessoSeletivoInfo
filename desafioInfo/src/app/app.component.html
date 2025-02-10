@@ -23,12 +23,13 @@
         <td><input [(ngModel)]="vehicle.marca" [readonly]="!isEditing(i)" /></td>
         <td><input [(ngModel)]="vehicle.ano" [readonly]="!isEditing(i)" /></td>
         <td>
-          <button style="margin-bottom: 5px; width: 53px;" *ngIf="!isEditing(i)" (click)="editVehicle(i)">Editar</button>
-          <button style="margin-bottom: 5px;" *ngIf="isEditing(i)" (click)="updateVeiculo(vehicle, i)">Atualizar</button>
-          <button (click)="deleteVeiculo(vehicle.id)">Excluir</button>
+          <button class="add-button" style="margin-bottom: 5px; width: 89px;" *ngIf="!isEditing(i)" (click)="editVehicle(i)">Editar</button>
+          <button class="add-button" style="gap: 5px;  margin-bottom: 5px;" *ngIf="isEditing(i)" (click)="updateVeiculo(vehicle, i)">Atualizar</button>
+          <div></div>
+          <button class="add-button" (click)="deleteVeiculo(vehicle.id)">Excluir</button>
         </td>
       </tr>
     </tbody>
   </table>
-  <button style="margin-top: 10px; width: 88px; height: 33px" (click)="addVeiculo()">ADICIONAR</button>
+  <button class="add-button" (click)="addVeiculo()">ADICIONAR</button>
 </div>

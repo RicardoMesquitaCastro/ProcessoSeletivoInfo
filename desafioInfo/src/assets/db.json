@@ -5,9 +5,9 @@
       "placa": "XYZ4E56",
       "chassi": "8ADZZZ123YT009876",
       "renavam": "98765432109",
-      "modelo": "Civic",
+      "modelo": "Civic-Honda",
       "marca": "Honda",
-      "ano": 2019
+      "ano": "2017"
     },
     {
       "id": "3",
@@ -26,15 +26,6 @@
       "modelo": "Onix",
       "marca": "Chevrolet",
       "ano": 2022
-    },
-    {
-      "id": "5",
-      "placa": "PQR3H45",
-      "chassi": "5TRZZZ321ZX001234",
-      "renavam": "65432198708",
-      "modelo": "Fiesta",
-      "marca": "Ford",
-      "ano": 2018
     }
   ]
 }
