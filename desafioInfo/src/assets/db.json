@@ -1,7 +1,25 @@
 {
   "vehicles": [
     {
-      "id": "3",
+      "id": 1,
+      "placa": "ABC1D23",
+      "chassi": "9BWZZZ377VT004251",
+      "renavam": "12345678901",
+      "modelo": "Gol",
+      "marca": "Volkswagen",
+      "ano": 2020
+    },
+    {
+      "id": 2,
+      "placa": "XYZ4E56",
+      "chassi": "8ADZZZ123YT009876",
+      "renavam": "98765432109",
+      "modelo": "Civic",
+      "marca": "Honda",
+      "ano": 2019
+    },
+    {
+      "id": 3,
       "placa": "JKL7F89",
       "chassi": "7GHZZZ654RT003456",
       "renavam": "45612378905",
@@ -10,13 +28,22 @@
       "ano": 2021
     },
     {
-      "id": "4",
+      "id": 4,
       "placa": "MNO0G12",
       "chassi": "6UIZZZ987QP002345",
       "renavam": "32198765402",
       "modelo": "Onix",
       "marca": "Chevrolet",
-      "ano": "2024"
+      "ano": 2022
+    },
+    {
+      "id": 5,
+      "placa": "PQR3H45",
+      "chassi": "5TRZZZ321ZX001234",
+      "renavam": "65432198708",
+      "modelo": "Fiesta",
+      "marca": "Ford",
+      "ano": 2018
     }
   ]
 }
