@@ -5,6 +5,7 @@ import { MatDialog, MatDialogModule, MatDialogRef } from '@angular/material/dial
 import { of } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('AppComponent', () => {
   let component: AppComponent;
@@ -19,7 +20,7 @@ describe('AppComponent', () => {
     veiculoServiceMock.getVeiculos.and.returnValue(of([{ id: 1, placa: 'ABC-1234', chassi: '123456', renavam: '123456789', modelo: 'Modelo A', marca: 'Marca A', ano: 2020 }]));
 
     await TestBed.configureTestingModule({
-      imports: [AppComponent, MatDialogModule, FormsModule, HttpClientTestingModule],
+      imports: [AppComponent, MatDialogModule, FormsModule, HttpClientTestingModule, BrowserAnimationsModule ],
       providers: [
         { provide: VeiculoService, useValue: veiculoServiceMock },
         { provide: MatDialog, useValue: dialogMock },
