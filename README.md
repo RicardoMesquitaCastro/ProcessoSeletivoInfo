@@ -56,6 +56,11 @@ Este projeto é uma implementação do frontend em Angular para um CRUD (Create,
 # Excluir Veículo
 * Para excluir um veículo, clique no botão de excluir ao lado do veículo desejado na coluna Ações. O veículo em questão será excluido da lista e da API.
 
+ # Exportando para CSV usando FileSaver.js
+* Para exportar os dados para um arquivo CSV, clique no botão Exportar para CSV, o arquivo será baixado.
+
+ # Exportando para Excel usando xlsx
+* Se você preferir exportar para um arquivo Excel (XLSX), você pode baixar clicando no botão Exportar para Excel.
 
 # Possíveis Melhorias
 * Validação de Dados: Implementar validação adicional nos campos do formulário, como verificar o formato da placa, chassi, etc.

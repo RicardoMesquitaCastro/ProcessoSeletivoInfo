@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
 import { AddVeiculoModalComponent } from './add-veiculo-modal/add-veiculo-modal.component';
 import { FormsModule } from '@angular/forms';
+import { saveAs } from 'file-saver';
+import * as XLSX from 'xlsx';
 
 export interface Vehicle {
   id: number;
@@ -73,5 +75,34 @@ export class AppComponent implements OnInit {
       this.loadVehicles();
     },
   );
+  }
+
+  exportToCSV() {
+    const headers = ['ID', 'Placa', 'Chassi', 'Renavam', 'Modelo', 'Marca', 'Ano'];
+    const rows = this.vehicles.map(vehicle => [
+      vehicle.id,
+      vehicle.placa,
+      vehicle.chassi,
+      vehicle.renavam,
+      vehicle.modelo,
+      vehicle.marca,
+      vehicle.ano
+    ]);
+
+    let csvContent = 'data:text/csv;charset=utf-8,';
+    csvContent += headers.join(',') + '\r\n';
+    rows.forEach(row => {
+      csvContent += row.join(',') + '\r\n';
+    });
+
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    saveAs(blob, 'veiculos.csv');
+  }
+
+  exportToExcel(): void {
+    const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(this.vehicles);
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Veículos');
+    XLSX.writeFile(wb, 'veiculos.xlsx');
   }
 }

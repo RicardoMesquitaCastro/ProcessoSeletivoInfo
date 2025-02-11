@@ -60,3 +60,12 @@ input{
 .container {
   margin-top: 100px;
 }
+
+.button-container {
+  display: flex;
+  gap: 10px; /* Adiciona espaçamento entre os botões */
+  flex-direction: row; /* Faz os botões ficarem em linha */
+  justify-content: center; /* Centraliza os botões horizontalmente */
+  align-items: center; /* Centraliza os botões verticalmente */
+ 
+}

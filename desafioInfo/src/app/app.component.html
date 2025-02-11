@@ -34,5 +34,9 @@
       </tr>
     </tbody>
   </table>
-  <button class="add-button" style="width: 400px;" (click)="addVeiculo()">ADICIONAR VEÍCULO</button>
+  <div class="button-container">
+    <button class="add-button" style="width: 400px;" (click)="addVeiculo()">ADICIONAR VEÍCULO</button>
+    <button class="add-button" mat-raised-button color="primary" (click)="exportToCSV()">Exportar para CSV</button>
+    <button class="add-button" mat-raised-button color="primary" (click)="exportToExcel()">Exportar para Excel</button>
+  </div>
 </div>
