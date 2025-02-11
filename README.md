@@ -63,4 +63,5 @@ Este projeto é uma implementação do frontend em Angular para um CRUD (Create,
 * Exemplo: Integrar uma API de consulta de veículos para preencher informações automaticamente, como o modelo e a marca, quando o usuário inserir a placa.
 * Autenticação: Adicionar autenticação para proteger as rotas de CRUD.
 * UI/UX: Melhorar a interface do usuário com componentes gráficos mais interativos, como modais ou formulários de edição mais dinâmicos.
+* Evitar salvamento ou edições de atributos com dados iguais.
 * Entre outros...
