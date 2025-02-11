@@ -1,34 +1,34 @@
 {
   "vehicles": [
     {
-      "id": 1,
+      "id": "1",
       "placa": "ABC1D23",
       "chassi": "9BWZZZ377VT004251",
       "renavam": "12345678901",
       "modelo": "Gol",
       "marca": "Volkswagen",
-      "ano": 2020
+      "ano": "2024"
     },
     {
-      "id": 2,
+      "id": "2",
       "placa": "XYZ4E56",
       "chassi": "8ADZZZ123YT009876",
       "renavam": "98765432109",
       "modelo": "Civic",
       "marca": "Honda",
-      "ano": 2019
+      "ano": "2018"
     },
     {
-      "id": 3,
+      "id": "3",
       "placa": "JKL7F89",
       "chassi": "7GHZZZ654RT003456",
       "renavam": "45612378905",
       "modelo": "Corolla",
       "marca": "Toyota",
-      "ano": 2021
+      "ano": "2022"
     },
     {
-      "id": 4,
+      "id": "4",
       "placa": "MNO0G12",
       "chassi": "6UIZZZ987QP002345",
       "renavam": "32198765402",
@@ -37,31 +37,13 @@
       "ano": 2022
     },
     {
-      "id": 5,
-      "placa": "PQR3H45",
-      "chassi": "5TRZZZ321ZX001234",
-      "renavam": "65432198708",
-      "modelo": "Fiesta",
-      "marca": "Ford",
-      "ano": 2018
-    },
-    {
-      "id": 6,
-      "placa": "ASD3H45",
-      "chassi": "5TRZZZ321ZX001234",
-      "renavam": "65432198708",
-      "modelo": "Fiesta",
-      "marca": "FordKa",
-      "ano": 2019
-    },
-    {
-      "id": 7,
-      "placa": "PQE7845",
-      "chassi": "5TRZZZ321ZX001234",
-      "renavam": "65432198708",
-      "modelo": "Fiesta",
-      "marca": "Ford",
-      "ano": 2020
+      "id": "5",
+      "placa": "QAES785",
+      "chassi": "SSA74854964854755",
+      "renavam": "6ASDD744585",
+      "modelo": "TESLA",
+      "marca": "TESLA",
+      "ano": 2025
     }
   ]
 }

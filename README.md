@@ -62,6 +62,15 @@ Este projeto é uma implementação do frontend em Angular para um CRUD (Create,
  # Exportando para Excel usando xlsx
 * Se você preferir exportar para um arquivo Excel (XLSX), você pode baixar clicando no botão Exportar para Excel.
 
+# Testes unitários
+* Foi realizado testes unitários em Jasmine e Karma dos componentes criados.
+
+#  Mensagens de sucesso CRUD com MatSnackBar
+ * MatSnackBar um componente do Angular Material utilizado para exibir mensagens breves de feedback, geralmente no formato de "snackbars", ou seja, pequenos painéis temporários que aparecem na parte inferior ou superior da tela, sem interferir na interação do usuário com a aplicação. 
+ * Essas mensagens são usadas para comunicar ações como sucesso, erro, aviso, ou informações adicionais, e são automaticamente descartadas após um curto período ou quando o usuário interage com elas.
+ * No caso desse projeto ele irá aparecer quando haver alguma Ação, porém por algum motivo ainda não descoberto por mim as mensagens estão sumindo mais rapido que o esperado. O funcionamento está de acordo com o desejado ao exportar CSV e Excel. 
+
+
 # Possíveis Melhorias
 * Validação de Dados: Implementar validação adicional nos campos do formulário, como verificar o formato da placa, chassi, etc.
 * Descrição: Integrar o sistema com APIs externas, como serviços que validam a placa do veículo ou serviços que retornam informações adicionais sobre o modelo e ano do veículo.
