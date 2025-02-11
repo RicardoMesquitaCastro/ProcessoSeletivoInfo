@@ -44,6 +44,24 @@
       "modelo": "Fiesta",
       "marca": "Ford",
       "ano": 2018
+    },
+    {
+      "id": 6,
+      "placa": "ASD3H45",
+      "chassi": "5TRZZZ321ZX001234",
+      "renavam": "65432198708",
+      "modelo": "Fiesta",
+      "marca": "FordKa",
+      "ano": 2019
+    },
+    {
+      "id": 7,
+      "placa": "PQE7845",
+      "chassi": "5TRZZZ321ZX001234",
+      "renavam": "65432198708",
+      "modelo": "Fiesta",
+      "marca": "Ford",
+      "ano": 2020
     }
   ]
 }

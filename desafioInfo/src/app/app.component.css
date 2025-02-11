@@ -38,3 +38,25 @@ th {
 input{
   font-weight: bold;
 }
+
+.fixed-div {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(88, 88, 87, 0.7);
+  color: white;
+  padding: 10px;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+}
+
+.fixed-div img {
+  max-height: 50px;
+  margin-left: 10px;
+}
+
+.container {
+  margin-top: 100px;
+}
