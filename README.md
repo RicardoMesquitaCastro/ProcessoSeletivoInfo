@@ -2,6 +2,12 @@
 
 Este projeto é uma implementação do frontend em Angular para um CRUD (Create, Read, Update, Delete) de veículos. O sistema permite visualizar, adicionar, atualizar e excluir veículos. Ele se comunica com uma API para persistir os dados dos veículos.
 
+# Como Rodar o Projeto
+* Após clonar execute npm install para instalação das dependências.
+* Execute npm start. Esse comando irá executar tanto o projeto na porta http://localhost:4200/ quanto o serviço da API http://localhost:3000/.
+* A API mockada se encontra em src/assets/db.json utilizada para o CRUD.
+* 
+
 # Tecnologias Usadas no Frontend:
 
 * Angular v19
@@ -18,10 +24,6 @@ Este projeto é uma implementação do frontend em Angular para um CRUD (Create,
 * Adicionar Veículo: Permite adicionar um novo veículo via formulário.
 * Atualizar Veículo: Permite editar as informações de um veículo existente.
 * Excluir Veículo: Permite excluir um veículo.
-
-# Como Rodar o Projeto
-* Após clonar execute npm install para instalação das dependências.
-* Execute npm start. Esse comando irá executar tanto o projeto na porta http://localhost:4200/ quanto o serviço da API http://localhost:3000/
 
 # Estrutura dos Arquivos
    # VeiculoService
